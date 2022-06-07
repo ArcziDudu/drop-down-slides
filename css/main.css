@@ -1,0 +1,204 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --spring-color: #5bca5b;
+  --summer-color: #ffd900;
+  --autumn-color: #e09213;
+  --winter-color: #4198df;
+}
+
+[data-bg="spring"] {
+  background-color: var(--spring-color);
+}
+
+[data-bg="summer"] {
+  background-color: var(--summer-color);
+}
+
+[data-bg="autumn"] {
+  background-color: var(--autumn-color);
+}
+
+[data-bg="winter"] {
+  background-color: var(--winter-color);
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5em;
+  background-color: #fff;
+  width: 1200px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+body .wrapper .card {
+  position: relative;
+  -webkit-box-flex: .8;
+      -ms-flex-positive: .8;
+          flex-grow: .8;
+  height: 600px;
+  margin: 4px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: flex-grow .8s, -webkit-box-flex .8s;
+  transition: flex-grow .8s, -webkit-box-flex .8s;
+  transition: flex-grow .8s;
+  transition: flex-grow .8s, -webkit-box-flex .8s, -ms-flex-positive .8s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+body .wrapper .card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+body .wrapper .card .text {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 10%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 80%;
+  padding: 2em;
+  color: #fff;
+  border-radius: 6px;
+}
+
+body .wrapper .card .text h2 {
+  text-transform: uppercase;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+body .wrapper .card .text p {
+  display: none;
+  opacity: 0;
+  font-size: 1.6rem;
+}
+
+body .wrapper .active {
+  -webkit-box-flex: 8;
+      -ms-flex-positive: 8;
+          flex-grow: 8;
+}
+
+body .wrapper .active .text {
+  -webkit-animation: show-bg 1s .6s forwards;
+          animation: show-bg 1s .6s forwards;
+}
+
+body .wrapper .active .text h2 {
+  display: none;
+}
+
+body .wrapper .active .text p {
+  display: block;
+  -webkit-animation: show-text 1s .2s forwards;
+          animation: show-text 1s .2s forwards;
+}
+
+body .wrapper .active::after {
+  opacity: 0;
+}
+
+body .wrapper .spring {
+  background-image: url("https://cdn.pixabay.com/photo/2016/04/12/10/55/blossom-1324088_960_720.jpg");
+}
+
+body .wrapper .spring::before {
+  background-color: var(--spring-color);
+}
+
+body .wrapper .summer {
+  background-image: url("https://cdn.pixabay.com/photo/2013/10/07/18/06/field-192179_960_720.jpg");
+}
+
+body .wrapper .summer::before {
+  background-color: var(--summer-color);
+}
+
+body .wrapper .autumn {
+  background-image: url("https://cdn.pixabay.com/photo/2019/03/31/21/43/the-dark-hedges-4094148_960_720.jpg");
+}
+
+body .wrapper .autumn::before {
+  background-color: var(--autumn-color);
+}
+
+body .wrapper .winter {
+  background-image: url("https://cdn.pixabay.com/photo/2018/05/04/07/55/snow-3373432_960_720.jpg");
+}
+
+body .wrapper .winter::before {
+  background-color: var(--winter-color);
+}
+
+body .wrapper .spring::before,
+body .wrapper .autumn::before,
+body .wrapper .summer::before,
+body .wrapper .winter::before {
+  cursor: pointer;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+}
+
+@-webkit-keyframes show-bg {
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes show-bg {
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@-webkit-keyframes show-text {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-text {
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=main.css.map */
